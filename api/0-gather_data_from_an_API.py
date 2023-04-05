@@ -6,18 +6,40 @@ returns information about his/her TODO list progress.
 
 
 import requests
+from sys import argv
 
 
 if __name__ == "__main__":
     user = requests.get('https://jsonplaceholder.typicode.com/users')
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    EMPLOYEE_NAME = user.json()[0]["name"]
-    NUMBER_OF_DONE_TASKS = todos.json()[0]["completed"]
-    TOTAL_NUMBER_OF_TASKS = todos.json()[0]["completed"]
-    TASK_TITLE = todos.json()[0]["title"]
+    data_user = user.json()
+    data_todos = todos.json()
+    data_name = ""
+    title = ""
 
-    print("Employee {} is done with tasks({}/{})"
-          .format(EMPLOYEE_NAME,
-                  NUMBER_OF_DONE_TASKS,
-                  TOTAL_NUMBER_OF_TASKS))
-    print("     {}".format(TASK_TITLE))
+    for name in data_user:
+        if int(argv[1]) == name.get("id"):
+            data_name = name.get("name")
+            print(data_name)
+
+    for data in data_todos:
+        count_true = 0
+        total_count = 0
+
+        if int(argv[1]) == data.get("userId"):
+            if data.get("completed") is True:
+                count_true += 1
+            print(count_true)
+        
+        if int(argv[1]) == data.get("completed"):
+            if data("completed") is True and data("completed") is False:
+                total_count += 1
+                print(total_count)
+        
+        if argv[1] == data.get("title"):
+            title = data.get("title")
+            print(title)
+
+        print("Employee {} is done with tasks({}/{})"
+              .format(data_name, count_true, total_count))
+        print("     {}".format(title))
