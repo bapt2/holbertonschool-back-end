@@ -43,7 +43,6 @@ if __name__ == "__main__":
             if data.get("completed") is True:
                 Title = data.get("title")
 
-    
     with open('USER_ID.csv', 'w') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL, delimiter=',')
         for data in data_todos:
@@ -54,4 +53,4 @@ if __name__ == "__main__":
                 li.append(data.get("completed"))
                 li.append(data.get("title"))
                 writer.writerow([li])
-    #file.close()
+    file.close()
