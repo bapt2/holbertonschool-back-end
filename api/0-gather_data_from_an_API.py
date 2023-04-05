@@ -11,8 +11,8 @@ import requests
 if __name__ == "__main__":
     user = requests.get('https://jsonplaceholder.typicode.com/users')
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    EMPLOYEE_NAME = todos.json()[0]["name"]
-    NUMBER_OF_DONE_TASKS = todos.json()[0]["compled"]
+    EMPLOYEE_NAME = user.json()[0]["name"]
+    NUMBER_OF_DONE_TASKS = todos.json()[0]["completed"]
     TOTAL_NUMBER_OF_TASKS = todos.json()[0]["completed"]
     TASK_TITLE = todos.json()[0]["title"]
 
