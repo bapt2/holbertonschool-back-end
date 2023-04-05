@@ -20,7 +20,6 @@ if __name__ == "__main__":
     for name in data_user:
         if int(argv[1]) == name.get("id"):
             data_name = name.get("name")
-            print(data_name)
 
     for data in data_todos:
         count_true = 0
@@ -29,17 +28,18 @@ if __name__ == "__main__":
         if int(argv[1]) == data.get("userId"):
             if data.get("completed") is True:
                 count_true += 1
-            print(count_true)
-        
+
         if int(argv[1]) == data.get("completed"):
             if data("completed") is True and data("completed") is False:
                 total_count += 1
-                print(total_count)
-        
-        if argv[1] == data.get("title"):
+
+    print("Employee {} is done with tasks({}/{})"
+          .format(data_name, count_true, total_count))
+    
+    for data in data_todos:
+
+        if argv[1] == data.get("title") and data.get("completed") is True:
             title = data.get("title")
             print(title)
 
-        print("Employee {} is done with tasks({}/{})"
-              .format(data_name, count_true, total_count))
-        print("     {}".format(title))
+    print("     {}".format(title))
