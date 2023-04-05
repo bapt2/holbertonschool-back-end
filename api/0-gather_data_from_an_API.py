@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     print("Employee {} is done with tasks({}/{})"
           .format(data_name, count_true, total_count))
-    
+
     for data in data_todos:
 
         if argv[1] == data.get("title") and data.get("completed") is True:
