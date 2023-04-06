@@ -29,4 +29,3 @@ if __name__ == "__main__":
                 li.append(data.get("completed"))
                 li.append(data.get("title"))
                 writer.writerow(li)
-    file.close()
