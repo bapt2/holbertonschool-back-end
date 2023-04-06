@@ -30,7 +30,6 @@ if __name__ == "__main__":
 
     d2 = {}
     d2[userId] = Po
-    print(d2)
 
     c3 = json.dumps(d2)
     with open('USER_ID.json', 'w') as file:
