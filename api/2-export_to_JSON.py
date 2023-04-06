@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-script that, using this REST API, for a given employee ID,
-returns information about his/her todo list progress .
+    script to export data in the JSON format
 """
 import json
 import requests
@@ -13,7 +12,6 @@ if __name__ == "__main__":
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
     data_user = user.json()
     data_todos = todos.json()
-    data_username = ""
 
     for name in data_user:
         if int(argv[1]) == name.get("id"):
@@ -32,6 +30,7 @@ if __name__ == "__main__":
 
     d2 = {}
     d2[userId] = Po
+    print(d2)
 
     c3 = json.dumps(d2)
     with open('USER_ID.json', 'w') as file:
