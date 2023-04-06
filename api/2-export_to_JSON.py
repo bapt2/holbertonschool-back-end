@@ -32,5 +32,5 @@ if __name__ == "__main__":
     d2[userId] = Po
 
     c3 = json.dumps(d2)
-    with open('USER_ID.json', 'w') as file:
+    with open(str(argv[1]) + '.json', 'w') as file:
         file.write(c3)
