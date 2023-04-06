@@ -5,9 +5,9 @@ returns information about his/her todo list progress .
 """
 
 
+import json
 import requests
 from sys import argv
-import json
 
 
 if __name__ == "__main__":
@@ -24,10 +24,10 @@ if __name__ == "__main__":
         if int(argv[1]) == name.get("id"):
             userId = name.get("id")
             data_username = name.get("username")
-    
+
     with open('USER_ID.json', 'w') as file:
         for data in data_todos:
-            
+
             if int(argv[1]) == data.get("userId"):
                 r2["task"] = data.get("title")
                 r2["completed"] = data.get("completed")
