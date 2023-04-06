@@ -18,23 +18,24 @@ if __name__ == "__main__":
     data_username = ""
     Po = []
     d2 = {}
-    r2 = {}
+
 
     for name in data_user:
         if int(argv[1]) == name.get("id"):
             userId = name.get("id")
             data_username = name.get("username")
 
+    for data in data_todos:
+        r2 = {}
+        if int(argv[1]) == data.get("userId"):
+            r2["task"] = data.get("title")
+            r2["completed"] = data.get("completed")
+            r2["username"] = data_username
+            Po.append(r2)
+
+    d2[userId] = Po
+    print(d2)
+
+    c3 = json.dumps(d2)
     with open('USER_ID.json', 'w') as file:
-        for data in data_todos:
-
-            if int(argv[1]) == data.get("userId"):
-                r2["task"] = data.get("title")
-                r2["completed"] = data.get("completed")
-                r2["username"] = data_username
-                Po.append(r2)
-
-        d2[userId] = Po
-        print(d2)
-        c3 = json.dumps(d2)
         file.write(c3)
