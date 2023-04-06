@@ -3,8 +3,6 @@
 script that, using this REST API, for a given employee ID,
 returns information about his/her todo list progress.
 """
-
-
 import csv
 import requests
 from sys import argv
@@ -21,8 +19,8 @@ if __name__ == "__main__":
         if int(argv[1]) == name.get("id"):
             data_username = name.get("username")
 
-    with open('USER_ID.csv', 'w') as file:
-        writer = csv.writer(file, quoting=csv.QUOTE_ALL, delimiter=',')
+    with open(argv[1] + '.csv', 'w') as file:
+        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for data in data_todos:
             li = []
             if int(argv[1]) == data.get("userId"):
@@ -30,5 +28,5 @@ if __name__ == "__main__":
                 li.append(data_username)
                 li.append(data.get("completed"))
                 li.append(data.get("title"))
-                writer.writerow([li])
+                writer.writerow(li)
     file.close()
